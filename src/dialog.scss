@@ -1,0 +1,122 @@
+/*.project-dialog {*/
+/*	min-height: 40px;*/
+/*	display: flex;*/
+/*	flex-direction: column;*/
+/*	width: 100%;*/
+/*	max-width: 250px;*/
+/*}*/
+
+
+.project-dialog {
+	width: 100%;
+	max-width: 500px;
+	min-height: 60px;
+	margin: 200px auto;
+	border: 1px solid transparent;
+	background-color: steelblue;
+	padding: 10px;
+	text-align: center;
+	font-size: 1.5rem;
+
+}
+
+.submit-btn-container {
+	display: flex;
+	justify-content: center;
+	gap: 5px;
+}
+
+#input-project {
+	min-height: 40px;
+	padding-left: 10px;
+	font-size: 1rem;
+	text-align: center;
+	text-transform: normal;
+}
+
+.submit-btn-container button {
+	padding: 5px 10px;
+	font-size: 1.25rem;
+}
+
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/*TASK DIALOG*/
+.task-dialog{
+	width: 100%;
+	max-width: 400px;
+	min-height: 300px;
+	margin: 70px auto;
+	padding: 20px;
+	border: 1px solid transparent;
+	background-color: rgb(251, 243, 213);
+}
+
+.task-input-list {
+	margin: 20px 0;
+}
+.task-input-list li {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	font-size: 1.25rem;
+}
+
+.task-input-list li:not(first-child) {
+	margin-top: 10px;
+}
+
+.task-input-list input {
+	min-height: 30px;
+}
+
+#task-title {
+	font-size: 1.25rem;
+	padding: 10px;
+}
+
+#task-description {
+ width: 100%;
+ min-height: 60px;
+ font-size: 1.25rem;
+ color: black;
+ font-weight: 500;
+}
+
+.task-btn-container {
+	margin-top: 30px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+.task-btn-container button {
+	padding: 5px 10px;
+	font-size: 1rem;
+}
+
+#task-date {
+	min-height: 30px;
+	font-size: 1.25rem;
+	padding: 10px;
+}
+
+#task-priority {
+	min-height: 40px;
+	font-size: 1.25rem;
+	padding: 10px;
+}
+
+#task-priority option {
+	min-height: 50px;
+}
+
+
+
+
+
