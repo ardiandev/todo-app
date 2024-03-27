@@ -73,6 +73,25 @@ submitProject.addEventListener("click", () => {
 	
 })
 
+//HANDLE NAVIGATION BUTTON
+const dateContainer = document.querySelector(".date-list");
+
+dateContainer.addEventListener("click", event => {
+	const btn = event.target;
+	
+	let btnName = btn.textContent.toLowerCase();
+	
+	switch(btnName) {
+		case "all tasks":
+			renderTasks();
+			break;
+		default:
+			return;
+	}
+	
+	console.log(btn.textContent.toLowerCase())
+
+})
 
 
 
@@ -95,7 +114,7 @@ const handleProject = (event) => {
 			showTaskByProject(btn);
 			break;
 		default:
-			break;
+			return;
 	}
 }
 
