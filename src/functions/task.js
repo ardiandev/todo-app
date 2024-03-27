@@ -17,7 +17,7 @@ class Task {
 					priority: "medium"
 				},
 				{
-					project: "study", 
+					project: "work", 
 					task: "math test", 
 					description: "mid semester test",
 					date: "23-02-2023", 

@@ -15,20 +15,26 @@ class Display {
 	}
 	
 	
-	renderAllTasks(taskList, element) {
-		const priorityIcon = (status) => {
-			if (status === "normal") {
-				return icons.lightStar;
-			} else if (status === "medium") {
-				return icons.solidStar;
-			} else {
-				return icons.solidStar + icons.solidStar
+	renderAllTasks(taskList) {
+		this.renderTasks(taskList)
+	}
+	
+	
+	renderTasks(items) {
+			const priorityIcon = (status) => {
+				if (status === "normal") {
+					return icons.lightStar;
+				} else if (status === "medium") {
+					return icons.solidStar;
+				} else {
+					return icons.solidStar + icons.solidStar
+				}
 			}
-		
-		}
+			
+		const taskContainer = document.querySelector(".task-list")
 		let innerTask = "";
-		taskList.forEach(({task, description, date, priority}, index) => {
-				innerTask += `
+		items.forEach(({task, description, date, priority}, index) => {
+			innerTask += `
 					<li class="task-item" >
 					<div class="task-info">
 						<input type="checkbox" class="task-status" />
@@ -43,12 +49,18 @@ class Display {
 					</div>
 				</li>			
 				`		
-		})
+				taskContainer.innerHTML = innerTask;
+			})	
+		}
+	
+	showTaskByProject(name, taskList, element) {
+		console.log(name, taskList, element)
 		
-		element.innerHTML = innerTask;
+		let filteredTask = taskList.filter(({project}) => project === name)
+		console.log(filteredTask)
+		let taskItems = this.renderTasks(filteredTask)
+		
 	}
-	
-	
 	
 }
 

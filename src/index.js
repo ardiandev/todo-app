@@ -15,8 +15,8 @@ let projectList = project.projectData()
 
 
 //RENDER ALL PROJECT AND TASK
-const renderAllTasks = () => {
-	display.renderAllTasks(task.taskData(), taskContainer)
+const renderTasks = () => {
+	display.renderTasks(task.taskData())
 }
 
 
@@ -82,19 +82,17 @@ const handleProject = (event) => {
 
 	let btn = event.target.closest("SPAN")
 	if (btn === null) {
-		console.log("not span");
 		return;
-	} else {
-		console.log("it's span'")
 	}
 	
 	let data = btn.id.split("-");
 
-	console.log(btn.className)
-	
 	switch(btn.className) {
 		case "delete-project-btn":
 			handleDelete(data)
+			break;
+		case "project-name":
+			showTaskByProject(btn);
 			break;
 		default:
 			break;
@@ -107,6 +105,13 @@ const handleDelete = (data) => {
 	let name = data[0]
 	project.delete(idx);
 	renderAllProject()
+}
+
+
+const showTaskByProject = (name) => {
+	let projectName = name.id.split("-")[0]
+	console.log(projectName)
+	display.showTaskByProject(projectName, taskList,taskContainer)
 }
 
 
@@ -172,12 +177,8 @@ taskSubmitBtn.addEventListener("click", () => {
 
 const start = () => {
 	renderAllProject()
-	renderAllTasks()
-	
+	renderTasks()
 }
-
-
-
 
 projectBtn.addEventListener("click", handleProject)
 
