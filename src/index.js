@@ -88,8 +88,6 @@ dateContainer.addEventListener("click", event => {
 		default:
 			return;
 	}
-	
-	console.log(btn.textContent.toLowerCase())
 
 })
 
@@ -124,6 +122,8 @@ const handleDelete = (data) => {
 	let name = data[0]
 	project.delete(idx);
 	renderAllProject()
+	task.delete(name)
+	display.renderTasks(task.taskData())
 }
 
 

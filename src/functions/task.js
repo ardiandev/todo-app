@@ -10,6 +10,13 @@ class Task {
 					priority: "normal"
 				},
 				{
+					project: "home", 
+					task: "drinking", 
+					description: "must drink juice",
+					date: "23-02-2023", 
+					priority: "high"
+				},
+				{
 					project: "school", 
 					task: "practice basketball", 
 					description: "final competiton",
@@ -31,6 +38,18 @@ class Task {
 		console.log(this.#task)
 	}
 	
+	delete(name) {
+		console.log(name)
+		
+		for (let i = this.#task.length - 1; i >= 0; i--) {		
+		
+			if (this.#task[i].project === name) {
+				this.#task.splice(i, 1)
+				console.log(this.#task)
+			}
+		}
+	
+	}
 	
 	taskData() {
 		return [...this.#task]
