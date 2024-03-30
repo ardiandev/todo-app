@@ -9,7 +9,7 @@ nav {
 }
 
 .date-list, .project-list {
-	padding-left: 10px;
+	// padding-left: 10px;
 	font-size: 1.25rem;
 	display: flex;
 	flex-direction: column;
@@ -53,13 +53,20 @@ nav h2 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 5px;
+}
+
+
+.project-list span, .date-list li {
+	padding: 5px 10px;
 	cursor: pointer;
 }
 
-.project-item:hover, .date-item:hover {
+.project-list span:hover, .date-list li:hover {
 	background-color: rgb(251, 243, 213);
+
 }
+
+
 
 .delete-project-btn, .project-name {
 	display: flex;
@@ -128,7 +135,7 @@ nav h2 {
 .task-action {
 	display: flex;
 	padding: 10px;
-	gap: 10px;
+	gap: 20px;
 	align-items: center;
 	width: 100%;
 	max-width: 500px;
@@ -136,11 +143,12 @@ nav h2 {
 }
 
 .task-priority {
-	width: 100px;
+	width: 100%;
+	max-width: 70px;
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	align-item: center;
+	align-items: center;
 }
 
 .task-action svg {

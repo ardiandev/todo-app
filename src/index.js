@@ -5,6 +5,7 @@ import Task from "./functions/task.js";
 
 //GLOBAL ELEMENT VARIABLES
 const taskContainer = document.querySelector(".task-list")
+// const addTaskBtn = document.querySelector(".add-task-btn")
 
 
 const project = new Project();
@@ -17,6 +18,8 @@ let projectList = project.projectData()
 //RENDER ALL PROJECT AND TASK
 const renderTasks = () => {
 	display.renderTasks(task.taskData())
+	display.updateTaskHeading("All Tasks")
+	// addTaskBtn.style.display = "none";
 }
 
 
@@ -128,9 +131,12 @@ const handleDelete = (data) => {
 
 
 const showTaskByProject = (name) => {
+	addTaskBtn.style.display = "block";
 	let projectName = name.id.split("-")[0]
 	console.log(projectName)
 	display.showTaskByProject(projectName, task.taskData())
+	task.getProjectName(projectName)
+
 }
 
 
@@ -172,7 +178,8 @@ taskCancelBtn.addEventListener("click", () => {
 })
 
 
-
+//SUBMIT TASK BTN
+task.projectName()
 taskSubmitBtn.addEventListener("click", () => {
 
 	if (!taskEl.value) {
@@ -180,19 +187,25 @@ taskSubmitBtn.addEventListener("click", () => {
 		return;
 	}
 
-	let project = projectName;
+	let projectName = task.projectName();
 	let taskName = taskEl.value;
 	let description = descriptionEl.value;
 	let date = dateEl.value;
 	let priority = priorityEl.value;
 
 
-	let newTask = createTask(project, taskName, description, date, priority)
+	let newTask = createTask(projectName, taskName, description, date, priority);
+	console.log(newTask)
 	task.addTask(newTask)
-	renderAllTasks()
+	display.showTaskByProject(projectName, task.taskData())
+	// renderAllTasks()
 	clearDialogInput()
 
 })
+
+
+
+
 
 const start = () => {
 	renderAllProject()

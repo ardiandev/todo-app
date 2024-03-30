@@ -1,6 +1,9 @@
 class Task {
 	#task
+	#projectName
+
 	constructor() {
+		this.#projectName = "general";
 		this.#task = [
 			{
 				project: "home",
@@ -31,6 +34,7 @@ class Task {
 				priority: "high"
 			}
 		]
+
 	}
 
 	addTask(newTask) {
@@ -51,9 +55,24 @@ class Task {
 
 	}
 
+
+
+
 	taskData() {
-		console.log(this.#task)
 		return [...this.#task]
+	}
+
+
+	getProjectName(name) {
+		// console.log(name)
+		this.#projectName = name;
+		// console.log(this.#projectName)
+
+	}
+
+	projectName() {
+		// console.log(this.#projectName);
+		return this.#projectName
 	}
 
 }

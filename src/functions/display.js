@@ -64,10 +64,18 @@ class Display {
 
 	}
 
-	showTaskByProject(name, taskList) {
-		console.log(taskList)
-		this.renderTasks(taskList.filter((task) => task.project === name))
+	showTaskByProject(projectName, taskList) {
+		if (projectName === "general") {
+			this.renderTasks(taskList)
+		} else {
+			this.renderTasks(taskList.filter((task) => task.project === projectName))
+			this.updateTaskHeading(projectName)
+		}
+	}
 
+	updateTaskHeading(name) {
+		const taskHeading = document.querySelector(".task-heading");
+		taskHeading.textContent = name
 	}
 
 
