@@ -1,113 +1,113 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="UTF-8"/>
+	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=devide-width, initial-scale=1" />
 	<link rel="icon" type="img/xml+svg" href="#" />
 	<title>Todo Js</title>
 <script defer src="bundle.js"></script></head>
+
 <body>
 	<header>
 		<div class="container header">
 			<h1 class="app-name">Todo Js</h1>
-		</div>	
+		</div>
 	</header>
 	<main>
 		<div class="container main">
-		<nav>
-			<h2>Home</h2>
-			<ul class="date-list">
-				<li class="date-item" >All tasks</li>
-				<li class="date-item" >Today</li>
-				<li class="date-item" >Next Week</li>
-			</ul>
-			<h2 class="project-subtitle" >Projects</h2>
-			<ul class="project-list" >
-				<li>home</li>
-				<li>work</li>
-			</ul>
-			<div class="add-project-container">
-<!--			<input class="input-project" type="text" />-->
-			<button class="add-project-btn">Add project</button>
-			<dialog class="project-dialog">
-				<form method="dialog">
-					<label for="project-input">New project</label>
-					<input type="text" id="input-project" />
-					
-					<div class="submit-btn-container">
-						<button type="reset" class="cancel-project">Cancel</button>
-						<button  type="submit" class="submit-project">Submit</button>	
-					</div>
-				</form>
-			</dialog>
-			</div>
-		</nav>
-		<section class="task-container">
-			<h2 class="task-heading" >All Task!!!</h2>
-			<ul class="task-list">
-				<li class="task-item" >
-					<div class="task-info">
-						<input type="checkbox" class="task-status" />
-						<span class="task-name">eating food</span>
-					</div>
-					<div class="task-action">
-						<span class="task-date">14 March 2024</span>
-						<span class="task-priority">important</span>
-						<span class="task-edit">edit</span>
-						<span class="task-delete">delete</span>
-						<span class="task-info">info</span>
-					</div>
-				</li>
-			</ul>
-			<button class="add-task-btn">Add task</button>
-<!--			DIALOG TASK-->
-			<dialog class="task-dialog">
-				<h2 class="task-dialog-heading">New Task</h2>
-				<div class="task-dialog-container">
-					<form method="dialog">
-						<ul class="task-input-list">
-							<li>
-								<label for="task-title" class="task-title">
-								Title
-								</label>
-								<input type="text" id="task-title" />
-							</li>
-							<li>
-								<label for="task-description" class="task-description">
-								Description
-								</label>
-								<textarea id="task-description"></textarea>
-							</li>
-							<li>
-								<label for="task-date" class="task-date">
-								Due date
-								</label>
-								<input type="date" id="task-date" />
-							</li>
-							<li>
-								<label for="priority">Priority</label>
-									<select name="priority" id="task-priority">
-  									<option value="normal">normal</option>
-  									<option value="medium">medium</option>
-  									<option value="high">high</option>
-  								</select>
-							</li>
-							<div class="task-btn-container">
-								<button class="task-cancel-btn">cancel</button>
-								<button class="task-submit-btn">submit</button>
+			<nav>
+				<h2>Home</h2>
+				<ul class="date-list">
+					<li class="date-item">All tasks</li>
+					<li class="date-item">Today</li>
+					<li class="date-item">Next Week</li>
+				</ul>
+				<h2 class="project-subtitle">Projects</h2>
+				<ul class="project-list"></ul>
+				<div class="add-project-container">
+					<!--			<input class="input-project" type="text" />-->
+					<button class="add-project-btn">Add project</button>
+					<dialog class="project-dialog">
+						<form method="dialog">
+							<label for="project-input">New project</label>
+							<input type="text" id="input-project" />
+
+							<div class="submit-btn-container">
+								<button type="reset" class="cancel-project">Cancel</button>
+								<button type="submit" class="submit-project">Submit</button>
 							</div>
-						</ul>
-					</form>
+						</form>
+					</dialog>
 				</div>
-			</dialog>
-<!--			DIALOG TASK-->
-		</section>
+			</nav>
+			<section class="task-container">
+				<h2 class="task-heading">All Task!!!</h2>
+				<ul class="task-list">
+					<li class="task-item">
+						<div class="task-info">
+							<input type="checkbox" class="task-status" />
+							<span class="task-name">eating food</span>
+						</div>
+						<div class="task-action">
+							<span class="task-date">14 March 2024</span>
+							<span class="task-priority">important</span>
+							<span class="task-edit">edit</span>
+							<span class="task-delete">delete</span>
+							<span class="task-info">info</span>
+						</div>
+					</li>
+				</ul>
+				<button class="add-task-btn">Add task</button>
+				<!--			DIALOG TASK-->
+				<dialog class="task-dialog">
+					<h2 class="task-dialog-heading">New Task</h2>
+					<div class="task-dialog-container">
+						<form method="dialog">
+							<ul class="task-input-list">
+								<li>
+									<label for="task-title" class="task-title">
+										Title
+									</label>
+									<input type="text" id="task-title" />
+								</li>
+								<li>
+									<label for="task-description" class="task-description">
+										Description
+									</label>
+									<textarea id="task-description"></textarea>
+								</li>
+								<li>
+									<label for="task-date" class="task-date">
+										Due date
+									</label>
+									<input type="date" id="task-date" />
+								</li>
+								<li>
+									<label for="priority">Priority</label>
+									<select name="priority" id="task-priority">
+										<option value="normal">normal</option>
+										<option value="medium">medium</option>
+										<option value="high">high</option>
+									</select>
+								</li>
+								<div class="task-btn-container">
+									<button class="task-cancel-btn">cancel</button>
+									<button class="task-submit-btn">submit</button>
+								</div>
+							</ul>
+						</form>
+					</div>
+				</dialog>
+				<!--			DIALOG TASK-->
+			</section>
 	</main>
 	<footer>
 		<div class="container footer">
 			<p class="copyright">Coded and Designed by <a class="copyright-link" href="#">Ardian Pradana</a></p>
 		</div>
 	</footer>
-	
+
 </body>
+
 </html>
