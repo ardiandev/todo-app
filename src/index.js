@@ -46,7 +46,7 @@ function handleAddProject(event) {
 const projectDialog = document.querySelector(".project-dialog")
 const addProject = () => {
 	projectDialog.showModal();
-	
+
 }
 
 //CANCEL DIALOG
@@ -60,17 +60,17 @@ addProjectBtn.addEventListener("click", addProject)
 //SUBMIT NEW PROJECT
 const submitProject = document.querySelector(".submit-project")
 submitProject.addEventListener("click", () => {
-		const input = document.querySelector("#input-project")
-		
-		if (input.value === "") {
-			alert("Project field cant be empty");
+	const input = document.querySelector("#input-project")
+
+	if (input.value === "") {
+		alert("Project field cant be empty");
 		return;
-		}
+	}
 	project.add(input.value.toLowerCase())
 	renderAllProject()
 	input.value = "";
 	console.log(input.value)
-	
+
 })
 
 //HANDLE NAVIGATION BUTTON
@@ -78,10 +78,10 @@ const dateContainer = document.querySelector(".date-list");
 
 dateContainer.addEventListener("click", event => {
 	const btn = event.target;
-	
+
 	let btnName = btn.textContent.toLowerCase();
-	
-	switch(btnName) {
+
+	switch (btnName) {
 		case "all tasks":
 			renderTasks();
 			break;
@@ -101,10 +101,10 @@ const handleProject = (event) => {
 	if (btn === null) {
 		return;
 	}
-	
+
 	let data = btn.id.split("-");
 
-	switch(btn.className) {
+	switch (btn.className) {
 		case "delete-project-btn":
 			handleDelete(data)
 			break;
@@ -123,14 +123,14 @@ const handleDelete = (data) => {
 	project.delete(idx);
 	renderAllProject()
 	task.delete(name)
-	display.renderTasks(task.taskData())
+	display.renderAllTasks(task.taskData())
 }
 
 
 const showTaskByProject = (name) => {
 	let projectName = name.id.split("-")[0]
 	console.log(projectName)
-	display.showTaskByProject(projectName, taskList,taskContainer)
+	display.showTaskByProject(projectName, task.taskData())
 }
 
 
@@ -142,7 +142,7 @@ const taskSubmitBtn = document.querySelector(".task-submit-btn");
 
 
 const createTask = (project, task, description, date, priority) => {
-	return {project, task, description, date, priority}
+	return { project, task, description, date, priority }
 }
 
 //SETUP DIALOG ELEMENT
@@ -164,7 +164,7 @@ const clearDialogInput = () => {
 
 addTaskBtn.addEventListener("click", () => {
 	dialogTask.showModal()
-} )
+})
 
 taskCancelBtn.addEventListener("click", () => {
 	dialogTask.close();
@@ -174,24 +174,24 @@ taskCancelBtn.addEventListener("click", () => {
 
 
 taskSubmitBtn.addEventListener("click", () => {
-	
-	if (!taskEl.value){
+
+	if (!taskEl.value) {
 		alert("Task title can't be empty")
 		return;
 	}
-	
+
 	let project = projectName;
 	let taskName = taskEl.value;
 	let description = descriptionEl.value;
 	let date = dateEl.value;
 	let priority = priorityEl.value;
-	
-	
+
+
 	let newTask = createTask(project, taskName, description, date, priority)
 	task.addTask(newTask)
 	renderAllTasks()
 	clearDialogInput()
-	
+
 })
 
 const start = () => {
@@ -203,8 +203,3 @@ projectBtn.addEventListener("click", handleProject)
 
 
 document.addEventListener("DOMContentLoaded", start)
-
-
-
-
-
