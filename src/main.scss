@@ -97,7 +97,7 @@ nav h2 {
 .task-list {
 	width: 100%;
 	margin: 0 auto;
-	padding: 10px 20px;
+	padding: 0 20px;
 }
 
 .task-item {
@@ -105,7 +105,7 @@ nav h2 {
 	align-items: center;
 	justify-content: space-between;
 	border: 1px solid black;
-	padding: 5px 10px;
+	padding:  0 10px;
 	font-size: 1.25rem;
 	min-height: 10px;
 }
@@ -134,8 +134,8 @@ nav h2 {
 
 .task-action {
 	display: flex;
-	padding: 10px;
-	gap: 20px;
+	// padding: 10px;
+	gap: 10px;
 	align-items: center;
 	width: 100%;
 	max-width: 500px;
@@ -149,6 +149,10 @@ nav h2 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.task-list span {
+	padding: 10px;
 }
 
 .task-action svg {

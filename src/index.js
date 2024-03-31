@@ -3,6 +3,7 @@ import Project from "./functions/project.js";
 import Display from "./functions/display.js";
 import Task from "./functions/task.js";
 
+
 //GLOBAL ELEMENT VARIABLES
 const taskContainer = document.querySelector(".task-list")
 // const addTaskBtn = document.querySelector(".add-task-btn")
@@ -207,6 +208,7 @@ taskSubmitBtn.addEventListener("click", () => {
 
 
 
+
 const start = () => {
 	renderAllProject()
 	renderTasks()
@@ -215,4 +217,62 @@ const start = () => {
 projectBtn.addEventListener("click", handleProject)
 
 
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", start)
+
+
+//HANDLE TASK ACTION
+const taskAction = document.querySelector(".task-list");
+const infoTaskDialog = document.querySelector(".info-task-dialog");
+const closeInfoTask = document.querySelector(".close-task-info");
+const innerTaskDialog = document.querySelector(".inner-task-info")
+
+const handleTaskAction = (event) => {
+	let clickBtn = event.target.closest("SPAN") || event.target.closest("INPUT")
+	console.log(clickBtn)
+
+	switch (clickBtn.className) {
+		case "task-info":
+			showDialog(clickBtn, infoTaskDialog, innerTaskDialog)
+			break;
+		case "task-delete":
+			handleTaskDelete(clickBtn);
+			break;
+		default:
+			return;
+	}
+
+}
+
+// OPEN TASK DIALOG
+const showDialog = (btn, taskContainer, infoDialogDiv) => {
+	taskInfo(taskContainer);
+	display.showInfo(btn, task.taskData(), infoDialogDiv)
+}
+
+const taskInfo = element => {
+	infoTaskDialog.showModal()
+
+}
+
+// CLOSE DIALOG
+closeInfoTask.addEventListener("click", () => {
+	infoTaskDialog.close()
+})
+
+//DELETE TASK
+const handleTaskDelete = (btn) => {
+	let data = btn.id
+	let projectName = data.split("-")[0]
+	task.deleteById(data)
+	display.showTaskByProject(projectName, task.taskData())
+}
+
+
+taskAction.addEventListener("click", handleTaskAction)
+
+

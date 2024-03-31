@@ -32,7 +32,7 @@ class Display {
 		const taskContainer = document.querySelector(".task-list");
 		taskContainer.innerHTML = "";
 		let innerTask = "";
-		taskList.forEach(({ task, description, date, priority }, index) => {
+		taskList.forEach(({ id, project, task, description, date, priority }, index) => {
 			const priorityIcon = (status) => {
 				if (status === "normal") {
 					return icons.lightStar;
@@ -52,9 +52,9 @@ class Display {
 					<div class="task-action">
 						<span class="task-date">${date}</span>
 						<span class="task-priority">${priorityIcon(priority)}</span>
-						<span class="task-edit">${icons.edit}</span>
-						<span class="task-delete">${icons.delete}</span>
-						<span class="task-info">${icons.detail}</span>
+						<span class="task-edit" id="${task}-${index}">${icons.edit}</span>
+						<span class="task-delete" id="${project}-${id}" >${icons.delete}</span>
+						<span class="task-info" id="${task}-${index}">${icons.detail}</span>
 					</div>
 				</li>			
 				`
@@ -76,6 +76,36 @@ class Display {
 	updateTaskHeading(name) {
 		const taskHeading = document.querySelector(".task-heading");
 		taskHeading.textContent = name
+	}
+
+	showInfo(element, taskData, dialogDiv) {
+		console.log(element, taskData)
+
+		let innerInfo = "";
+		let taskIdx = parseInt(element.id.split("-")[1]);
+		innerInfo = `
+			<li>
+				<h3>Project</h3>
+				<p>${taskData[taskIdx].project}</p>			
+			</li>
+			<li>
+				<h3>Task</h3>
+				<p class="task">${taskData[taskIdx].task}</p>
+			</li>
+			<li>
+				<h3>Due date</h3>
+				<p>${taskData[taskIdx].date}</p>
+			</li>
+			<li>
+				<h3>Note</h3>
+				<p>${taskData[taskIdx].description ? taskData[taskIdx].description : "No note"}</p>
+			</li>
+			<li>
+				<h3>Priority</h3>
+				<p class="task">${taskData[taskIdx].priority}</p>
+			</li>
+				`
+		dialogDiv.innerHTML = innerInfo;
 	}
 
 

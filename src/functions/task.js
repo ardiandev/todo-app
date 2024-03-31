@@ -1,3 +1,5 @@
+import { filter } from "domutils";
+
 class Task {
 	#task
 	#projectName
@@ -6,6 +8,7 @@ class Task {
 		this.#projectName = "general";
 		this.#task = [
 			{
+				id: 0,
 				project: "home",
 				task: "eating",
 				description: "must eat vegetables",
@@ -13,6 +16,7 @@ class Task {
 				priority: "normal"
 			},
 			{
+				id: 1,
 				project: "home",
 				task: "drinking",
 				description: "must drink juice",
@@ -20,6 +24,7 @@ class Task {
 				priority: "high"
 			},
 			{
+				id: 2,
 				project: "school",
 				task: "practice basketball",
 				description: "final competiton",
@@ -27,6 +32,7 @@ class Task {
 				priority: "medium"
 			},
 			{
+				id: 3,
 				project: "work",
 				task: "math test",
 				description: "mid semester test",
@@ -43,8 +49,6 @@ class Task {
 	}
 
 	delete(name) {
-		console.log(name)
-
 		for (let i = this.#task.length - 1; i >= 0; i--) {
 
 			if (this.#task[i].project === name) {
@@ -75,6 +79,37 @@ class Task {
 		return this.#projectName
 	}
 
+
+	deleteById(data) {
+		let filterByProject = []
+		let rawData = data.split("-");
+		let projectName = rawData[0];
+		let taskId = parseInt(rawData[1])
+		console.log(taskId)
+
+		this.#task.forEach((task, index) => {
+			if (task.id === taskId) {
+				this.#task.splice(index, 1)
+			}
+		})
+
+		console.log(this.#task)
+
+		// for (let i = this.#task.length - 1; i >= 0; i--) {
+		// 	if (this.#task[i].project === projectName) {
+		// 		filterByProject.push(this.#task[i])
+		// 		this.#task.splice(i, 1)
+		// 	}
+		// }
+
+		// filterByProject.splice(id, 1);
+
+		// filterByProject.forEach((task, index) => {
+		// 	if (index >= 0) {
+		// 		this.#task.push(task)
+		// 	}
+		// })
+	}
 }
 
 export default Task;

@@ -117,6 +117,30 @@ form {
 }
 
 
+// INFO TASK DIALOG
+.info-task-dialog {
+	width: 100%;
+	max-width: 300px;
+	min-height: 200px;
+	margin: 100px auto;
+	padding: 10px;
+	border: 2px solid silver;
+	background-color: rgb(251, 243, 213);
+}
 
+.info-task-dialog h2 {
+	margin: 10px 0;
+	font-size: 1.5rem;
+}
 
+.inner-task-info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px 0;
+}
 
+.close-task-info {
+	padding: 5px 10px;
+	font-size: 1rem;
+}
