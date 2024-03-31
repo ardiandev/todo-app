@@ -93,22 +93,6 @@ class Task {
 			}
 		})
 
-		console.log(this.#task)
-
-		// for (let i = this.#task.length - 1; i >= 0; i--) {
-		// 	if (this.#task[i].project === projectName) {
-		// 		filterByProject.push(this.#task[i])
-		// 		this.#task.splice(i, 1)
-		// 	}
-		// }
-
-		// filterByProject.splice(id, 1);
-
-		// filterByProject.forEach((task, index) => {
-		// 	if (index >= 0) {
-		// 		this.#task.push(task)
-		// 	}
-		// })
 	}
 }
 

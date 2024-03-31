@@ -204,23 +204,12 @@ taskSubmitBtn.addEventListener("click", () => {
 
 })
 
-
-
-
-
-
 const start = () => {
 	renderAllProject()
 	renderTasks()
 }
 
 projectBtn.addEventListener("click", handleProject)
-
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", start)
 
@@ -267,7 +256,7 @@ closeInfoTask.addEventListener("click", () => {
 //DELETE TASK
 const handleTaskDelete = (btn) => {
 	let data = btn.id
-	let projectName = data.split("-")[0]
+	let projectName = task.projectName()
 	task.deleteById(data)
 	display.showTaskByProject(projectName, task.taskData())
 }
