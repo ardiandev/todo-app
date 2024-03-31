@@ -94,6 +94,20 @@ class Task {
 		})
 
 	}
+
+	updateTaskId() {
+		let getTaskLength = this.#task.length
+
+		if (getTaskLength === -1) {
+			getTaskLength = 0
+		}
+
+		for (let i = 0; i < getTaskLength; i++) {
+			this.#task[i].id = i
+		}
+
+		console.log(this.#task)
+	}
 }
 
 export default Task;

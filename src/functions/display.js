@@ -1,5 +1,4 @@
-import icons from "./icons.js"
-
+import icons from "./icons.js";
 class Display {
 
 	constructor() {

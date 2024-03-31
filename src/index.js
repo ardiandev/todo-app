@@ -2,6 +2,7 @@ import "./style.scss"
 import Project from "./functions/project.js";
 import Display from "./functions/display.js";
 import Task from "./functions/task.js";
+import { compareAsc, format } from "date-fns";
 
 
 //GLOBAL ELEMENT VARIABLES
@@ -148,8 +149,8 @@ const taskCancelBtn = document.querySelector(".task-cancel-btn");
 const taskSubmitBtn = document.querySelector(".task-submit-btn");
 
 
-const createTask = (project, task, description, date, priority) => {
-	return { project, task, description, date, priority }
+const createTask = (id, project, task, description, date, priority) => {
+	return { id, project, task, description, date, priority }
 }
 
 //SETUP DIALOG ELEMENT
@@ -179,6 +180,7 @@ taskCancelBtn.addEventListener("click", () => {
 })
 
 
+
 //SUBMIT TASK BTN
 task.projectName()
 taskSubmitBtn.addEventListener("click", () => {
@@ -193,10 +195,12 @@ taskSubmitBtn.addEventListener("click", () => {
 	let description = descriptionEl.value;
 	let date = dateEl.value;
 	let priority = priorityEl.value;
+	let taskId = task.taskData().length
 
 
-	let newTask = createTask(projectName, taskName, description, date, priority);
-	console.log(newTask)
+
+	let newTask = createTask(taskId, projectName, taskName, description, date, priority);
+	// console.log(newTask)
 	task.addTask(newTask)
 	display.showTaskByProject(projectName, task.taskData())
 	// renderAllTasks()
@@ -259,6 +263,7 @@ const handleTaskDelete = (btn) => {
 	let projectName = task.projectName()
 	task.deleteById(data)
 	display.showTaskByProject(projectName, task.taskData())
+	task.updateTaskId()
 }
 
 
